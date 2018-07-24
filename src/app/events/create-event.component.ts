@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IEvent, EventService } from './shared';
-import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
 
 @Component({
 	templateUrl: 'create-event.component.html',

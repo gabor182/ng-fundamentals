@@ -10,12 +10,19 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   EventsListResolver,
-  EventRouteActivator
+  EventRouteActivator,
+  CreateSessionComponent,
+  SessionListComponent
 } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { ToastrService } from './common/toastr.service';
+
+import { 
+  ToastrService, 
+  CollapsibleWellComponent 
+} from './common';
+
 import { Error404Component } from './errors/404.component';
 
 import { appRoutes } from './routes';
@@ -36,7 +43,10 @@ import { AuthService } from './user/auth.service';
     NavBarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent,
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   providers: [
     EventService, 
