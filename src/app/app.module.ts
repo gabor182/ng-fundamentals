@@ -22,7 +22,8 @@ import { NavBarComponent } from './nav/navbar.component';
 import { 
   TOASTR_TOKEN, 
   Toastr,
-  CollapsibleWellComponent
+  CollapsibleWellComponent,
+  JQ_TOKEN
 } from './common';
 
 import { Error404Component } from './errors/404.component';
@@ -30,7 +31,8 @@ import { Error404Component } from './errors/404.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 
-declare let toastr: Toastr;
+let toastr: Toastr = window['toastr'];
+let jquery = window['$'];
 
 @NgModule({
   imports: [
@@ -55,6 +57,7 @@ declare let toastr: Toastr;
   providers: [
     EventService, 
     { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jquery },
     EventRouteActivator,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventsListResolver,
