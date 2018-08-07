@@ -36,6 +36,16 @@ export class AuthService {
 		return !!this.currentUser;
 	}
 
+	checkAuthenticationStatus() {
+		this.http.get('/api/currentIdentity')
+			.pipe(tap(data => {
+				if (data instanceof Object) {
+					this.currentUser = <IUser>data;
+				}
+			}))
+			.subscribe();
+  }
+
 	private handleError<T>(operation = 'operation', result?: T) {
 		return (error: any): Observable<T> => {
 			console.error(error);
