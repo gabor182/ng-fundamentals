@@ -50,10 +50,10 @@ export class AuthService {
 			.subscribe();
   }
 
-	private handleError<T>(operation = 'operation', result?: T) {
-		return (error: any): Observable<T> => {
-			console.error(error);
-			return of(result as T);
-		}
+	logout() {
+		this.currentUser = undefined;
+		
+		let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+		return this.http.post('/api/logout', {}, options);
 	}
 }
